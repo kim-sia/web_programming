@@ -1,0 +1,67 @@
+body{
+    font-family: 'Noto Sans', sans-serif;
+    text-align: center;
+}
+#sidebar{
+    width: 20%;
+    margin-top: 0;
+    position: fixed;
+    float: left;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding: 0;
+    height: 100%;
+    cursor: default;
+    overflow-y: auto;
+    z-index:100;
+    background-color: #92A8D1;
+    text-align: center;
+}
+#home{
+    font-family: FontAwesome;
+    font-size: 40px;
+    border: none;
+    background-color: transparent;
+    color: white;
+}
+.home{
+    font-size: 40px;
+    color: white;
+    margin-top: 20%;
+}
+ul{
+    list-style: none;
+    padding: 0;
+}
+li{
+    margin-top: 30px;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+.side{
+    font-size: 25px;
+    color: white;
+    font-weight: bold;
+}
+header{
+    font-size: 50px;
+    font-weight: bold;
+    color: #92A8D1;
+    margin-top: 100px;
+    margin-bottom: 60px;
+}
+#test{
+    width: 80%;
+    margin-top: 0;
+    position: fixed;
+    float: left;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0;
+    height: 100%;
+    overflow-y: auto;
+}

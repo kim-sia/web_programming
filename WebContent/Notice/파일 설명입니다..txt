@@ -1,0 +1,6 @@
+가장 최근 프로젝트시 jsp로 개발했던 게시판 관련 코드입니다.
+Notice.jsp는 게시판의 글들의 목록을 보여주는 부분입니다.
+목록 중 하나를 선택했을 시 세부사항을 보여주는 Notice_Detail.jsp로 이동하게 됩니다.
+여기서 글 작성 시 올린 첨부파일은 Notice_Down.jsp로 파일을 다운 받을 수 있습니다.
+Notice_Write.jsp 는 글을 작성할 수 있는 부분이며,
+파일 첨부 시 서버에 올리는 과정은 Notice_Write_Check.jsp와 Notice_Write_Process.jsp로 작동됩니다.

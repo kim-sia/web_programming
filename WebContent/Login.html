@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <title>Login</title>
+    <style>
+        @import "all.css";
+        #sidebar{
+            background-color: #c8b2d6;
+        }
+        header{
+            color: #c8b2d6;
+        }
+        .text{
+            width: 295px;
+            height: 37px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+        }
+        input[type=submit]{
+            width: 307px;
+            height: 40px;
+            background-color: #c8b2d6;
+            color: white;
+            border: 1px solid #c8b2d6;
+            margin-top: 15px;
+            margin-bottom: 30px;
+            font-size: 17px;
+            font-weight: bold;
+        }
+        input:focus{
+            box-shadow: 0 0 5px #c8b2d6;
+            border: 1px solid #c8b2d6;
+        }
+        a{
+            color: #c8b2d6;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        li a{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div id = sidebar>
+    <div class="home">
+        <input type="button" value="&#xf015" id="home" onclick="location.href='Main.jsp'"><br>
+        <div class="side">
+            <ul>
+                <li class = "a"><a href="Attendance.jsp">Attendance</a></li>
+                <li class = "a"><a href="Assignment.jsp">Assignment</a> </li>
+                <li class = "a"><a href="Grade.jsp">Grade</a></li>
+                <li class = "a"><a href="Notice.jsp">Notice</a></li>
+                <li class = "a"><a href="Board.jsp">Board</a></li>
+                <li class = "a"><a href="Test.jsp">Quiz</a></li>
+                <li class = "a"><a href="E-Learning.jsp">E-Learning</a></li>
+                <li class = "a"><a href="Mypage.jsp">My page</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id = test>
+<header>
+    Login
+</header>
+<form action="Login.jsp" method="post">
+    <input type="text" class="text" name = "ID" placeholder="ID" required> <br>
+    <input type="password" class="text" name = "PW" placeholder="PASSWORD" required> <br>
+    <input type="submit" value="Login">
+</form>
+<a href="SignUp_Edu.html">SignUp for Educator&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+<a href="SignUp_Stu.html">SignUp for Student</a>
+</div>
+<script>
+jQuery('.a').click(function (e) {
+	e.preventDefault();
+	alert("This page requires login");
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="EUC-KR">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <title>Sign Up</title>
+    <style>
+        @import "all.css";
+        #sidebar{
+            background-color: #F7CAC9;
+        }
+        header{
+            color: #F7CAC9;
+        }
+        small{
+            font-size: 30px;
+        }
+        table{
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+            width: 300px;
+        }
+        .tag{
+            font-size: 20px;
+            margin-bottom: 2px;
+        }
+        .text{
+            width: 100%;
+            height: 20px;
+            margin-bottom: 5px;
+        }
+        input:focus{
+            box-shadow: 0 0 5px #F7CAC9;
+            border: 1px solid #F7CAC9;
+        }
+    </style>
+</head>
+<body>
+<div id = sidebar>
+    <div class="home">
+    
+        <input type="button" value="&#xf015" id="home" onclick="location.href='Main.jsp'"><br>
+        <div class="side">
+            <ul>
+                <li class="a"><a href="Attendance.jsp">Attendance</a></li>
+                <li class="a"><a href="Assignment.jsp">Assignment</a> </li>
+                <li class="a"><a href="Grade.jsp">Grade</a></li>
+                <li class="a"><a href="Notice.jsp">Notice</a></li>
+                <li class="a"><a href="Board.jsp">Board</a></li>
+                <li class="a"><a href="Test.jsp">Quiz</a></li>
+                <li class="a"><a href="E-Learning.jsp">E-Learning</a></li>
+                <li class="a"><a href="Mypage.jsp">My page</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id =test>
+<header>
+    Sign Up <small>for</small> Student
+</header>
+<form action="SignUp_Stu.jsp" method="post" name = signup>
+    <table>
+        <tr>
+            <td class="tag">University</td>
+        </tr>
+        <tr>
+            <td>
+                <select required name = university class="text">
+                    <option value="">University</option>
+                    <option value="jbnu">Chonbuk National University</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="tag">Department</td>
+        </tr>
+        <tr>
+            <td>
+                <select required name = department class="text">
+                    <option value="">Department</option>
+                    <option value="cse">Computer Science Engineering</option>
+                </select> <br>
+            </td>
+        </tr>
+        <tr>
+            <td class="tag">Student ID</td>
+        </tr>
+        <tr>
+            <td>
+	            <input type="text" class="text" name = "stu_id" id = "idCheck" autocomplete="off" onchange = "doubleCheck()" required>
+				<div id = "checkID" style="font-size: 11px; color: red; margin-top: 1px"></div>
+            </td>
+        </tr>
+        <tr>
+            <td class="tag">Grade</td>
+        </tr>
+        <tr>
+            <td>
+                <select required name = grade class="text">
+                    <option value="">grade</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="tag">Name</td>
+        </tr>
+        <tr>
+            <td><input type="text" class="text" name = "stu_name" autocomplete="off" required></td>
+        </tr>
+        <tr>
+            <td class="tag">Password</td>
+        </tr>
+        <tr>
+            <td><input type="password" class="text" name="stu_pwd" id = "stu_pw" autocomplete="off" required></td>
+        </tr>
+        <tr>
+            <td class="tag">Password Confirm</td>
+        </tr>
+        <tr>
+            <td>
+            	<input type="password" class="text" name="stu_pwd_confirm" id = "stu_pw_confirm" onchange = "validate()" autocomplete="off" required>
+            	<div id = "same" style="font-size: 11px; color: red; margin-top: 1px"></div>
+            </td>
+        </tr>
+        <tr>
+            <td class="tag">Email</td>
+        </tr>
+        <tr>
+            <td><input type="email" class="text" name = "stu_email" autocomplete="off" required></td>
+        </tr>
+        <tr>
+            <td class="tag">Phone</td>
+        </tr>
+        <tr>
+            <td><input type="tel" class="text" name = "stu_phone" autocomplete="off" required></td>
+        </tr>
+    </table> <br>
+    <input type="submit" value="submit" style="border:1.5px solid #F7CAC9; border-radius: 5px; background-color: white; color: #F7CAC9; font-weight: bold; width: 100px; height: 25px; margin-bottom: 100px;">
+</form>
+</div>
+<script>
+jQuery('.a').click(function (e) {
+	e.preventDefault();
+	alert("This page requires login");
+});
+	function doubleCheck() {
+		var param = "id=" + signup.idCheck.value;
+		httpRequest = new XMLHttpRequest();
+		httpRequest.onreadystatechange = callback;
+		httpRequest.open("POST", "SignUp_Stu.jsp", true);
+		httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		httpRequest.send(param);
+	}
+	function callback() {
+	console.log(httpRequest.readyState);
+		if(httpRequest.readyState == 4){
+			var result = httpRequest.responseText;
+			console.log(result);
+			if(result == 0){
+				document.getElementById('checkID').innerHTML = "User id is already taken.";
+				signup.stu_id.value = "";
+				signup.stu_id.focus();
+				return false;
+			}
+			else{
+				document.getElementById('checkID').innerHTML = "";
+				return true;
+			}
+		}
+	}
+    function validate() {
+        if(signup.stu_pw.value != signup.stu_pw_confirm.value){
+            document.getElementById('same').innerHTML = "These passwords don’t match.";
+            signup.stu_pwd_confirm.value = "";
+            signup.stu_pwd_confirm.focus();
+            return false;
+        }
+        else{
+            document.getElementById('same').innerHTML = "";
+            return true;
+        }
+    }
+</script>
+</body>
+</html>
